@@ -16,7 +16,10 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "bundleIdentifier": "com.bartar.app"
+      "bundleIdentifier": "com.bartar.app",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "com.bartar.app"
@@ -25,6 +28,9 @@
       "eas": {
         "projectId": "58e0d798-aee0-412a-8c95-d79c695cca6f"
       }
+    },
+    "cli": {
+      "appVersionSource": "app.json"
     }
   }
 }
