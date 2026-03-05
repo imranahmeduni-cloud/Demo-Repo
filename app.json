@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Demo-Repo",
-    "slug": "demo-repo",
+    "name": "BARTAR",
+    "slug": "bartar",
     "version": "1.0.0",
     "sdkVersion": "48.0.0",
     "platforms": ["ios", "android", "web"],
@@ -13,10 +13,10 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "bundleIdentifier": "com.example.demoapp"
+      "bundleIdentifier": "com.bartar.app"
     },
     "android": {
-      "package": "com.example.demoapp"
+      "package": "com.bartar.app"
     },
     "extra": {
       "eas": {
