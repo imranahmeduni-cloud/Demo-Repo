@@ -11,15 +11,19 @@ import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useFocusEffect } from '@react-navigation/native';
 
 export default function ScannerScreen({ navigation }) {
+  // Expo hook returns current permission state + a function to ask for permission.
   const [permission, requestPermission] = useCameraPermissions();
+  // Locks the scanner after first successful read to prevent duplicate navigations.
   const [scanned, setScanned] = useState(false);
 
+  // Ask for camera permission as soon as this screen loads.
   useEffect(() => {
     if (!permission || !permission.granted) {
       requestPermission();
     }
   }, [permission, requestPermission]);
 
+  // Reset scan lock every time user returns to this screen.
   useFocusEffect(
     React.useCallback(() => {
       setScanned(false);
@@ -50,9 +54,11 @@ export default function ScannerScreen({ navigation }) {
     );
   }
 
+  // CameraView sends an object with `data` when a code is detected.
   const handleBarcodeScanned = ({ data }) => {
     if (scanned || !data) return;
     setScanned(true);
+    // Pass scanned barcode to Results screen via navigation params.
     navigation.navigate('Results', { barcode: data });
   };
 
@@ -61,8 +67,10 @@ export default function ScannerScreen({ navigation }) {
       <CameraView
         style={StyleSheet.absoluteFill}
         barcodeScannerSettings={{
+          // Restrict scanner to common barcode formats for better reliability.
           barcodeTypes: ['ean13', 'ean8', 'upc_a', 'upc_e', 'code128', 'qr'],
         }}
+        // Disable callback after first scan until user explicitly resets.
         onBarcodeScanned={scanned ? undefined : handleBarcodeScanned}
       />
 

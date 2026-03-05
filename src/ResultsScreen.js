@@ -10,6 +10,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import mockPrices from './mockPrices';
 
+// Formats numbers as U.S. currency once, then reuses the formatter.
 const currency = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
@@ -31,10 +32,12 @@ function StoreBadge({ name }) {
 }
 
 export default function ResultsScreen({ route, navigation }) {
+  // Barcode comes from ScannerScreen via navigation params.
   const barcode = route?.params?.barcode ?? 'Unknown code';
   const [loading, setLoading] = useState(true);
   const [prices, setPrices] = useState([]);
 
+  // Simulates API latency, then loads local mock price data.
   useEffect(() => {
     const id = setTimeout(() => {
       setPrices(mockPrices(barcode));
@@ -44,6 +47,7 @@ export default function ResultsScreen({ route, navigation }) {
     return () => clearTimeout(id);
   }, [barcode]);
 
+  // Since prices are sorted ascending, index 0 is always the best offer.
   const bestPrice = useMemo(() => (prices.length ? prices[0].price : null), [prices]);
 
   if (loading) {
@@ -75,7 +79,7 @@ export default function ResultsScreen({ route, navigation }) {
             <View style={styles.storeInfo}>
               <Text style={styles.storeName}>{item.store}</Text>
               <Text style={styles.metaText}>
-                {item.delivery} day delivery • {item.stock}
+                {item.delivery} day delivery | {item.stock}
               </Text>
             </View>
             <View style={styles.priceWrap}>

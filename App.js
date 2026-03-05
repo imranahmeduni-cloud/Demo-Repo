@@ -5,13 +5,16 @@ import { createStackNavigator } from '@react-navigation/stack';
 import ScannerScreen from './src/ScannerScreen';
 import ResultsScreen from './src/ResultsScreen';
 
+// Stack navigator controls screen-to-screen flow in this app.
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
+    // NavigationContainer keeps navigation state for the whole app.
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
+          // Shared visual style for both screens.
           headerStyle: { backgroundColor: '#f8fafc' },
           headerTintColor: '#0f172a',
           headerTitleStyle: { fontSize: 18, fontWeight: '700' },

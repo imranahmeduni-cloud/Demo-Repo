@@ -1,8 +1,10 @@
 export default function mockPrices(barcode) {
+  // Simple deterministic seed so the same barcode always shows the same prices.
   const seed = (barcode || '')
     .split('')
     .reduce((sum, char) => sum + char.charCodeAt(0), 0);
 
+  // Base price shifts by barcode, then each store adds its own margin.
   const base = 12.5 + (seed % 7) * 0.85;
 
   return [
