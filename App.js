@@ -1,7 +1,7 @@
-import React from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import WelcomeScreen from './src/WelcomeScreen';
 import ScannerScreen from './src/ScannerScreen';
 import ResultsScreen from './src/ResultsScreen';
 
@@ -23,9 +23,14 @@ export default function App() {
         }}
       >
         <Stack.Screen
+          name="Welcome"
+          component={WelcomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="Scanner"
           component={ScannerScreen}
-          options={{ title: 'Scan Product' }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Results"
