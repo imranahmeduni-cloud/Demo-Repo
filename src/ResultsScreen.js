@@ -160,6 +160,10 @@ export default function ResultsScreen({ route, navigation }) {
       <Pressable style={styles.scanAgainButton} onPress={() => navigation.goBack()}>
         <Text style={styles.scanAgainText}>Scan Another Product</Text>
       </Pressable>
+
+      <Pressable style={styles.welcomeButton} onPress={() => navigation.navigate('Welcome')}>
+        <Text style={styles.welcomeButtonText}>← Back to Welcome Screen</Text>
+      </Pressable>
     </SafeAreaView>
   );
 }
@@ -340,5 +344,19 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontSize: 15,
     fontWeight: '800',
+  },
+
+  welcomeButton: {
+    marginBottom: 16,
+    paddingVertical: 14,
+    borderRadius: 18,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(249, 115, 22, 0.3)',
+  },
+  welcomeButtonText: {
+    color: '#f97316',
+    fontSize: 14,
+    fontWeight: '700',
   },
 });
