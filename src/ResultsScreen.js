@@ -162,7 +162,7 @@ export default function ResultsScreen({ route, navigation }) {
       </Pressable>
 
       <Pressable style={styles.welcomeButton} onPress={() => navigation.navigate('Welcome')}>
-        <Text style={styles.welcomeButtonText}>← Back to Welcome Screen</Text>
+        <Text style={styles.welcomeButtonText}>← Return to Welcome Screen</Text>
       </Pressable>
     </SafeAreaView>
   );
