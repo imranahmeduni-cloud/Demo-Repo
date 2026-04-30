@@ -38,7 +38,8 @@ export default function ScannerScreen({ navigation }) {
     React.useCallback(() => {
       setScanned(false);
       setTorchOn(false);
-    }, [])
+      scanAnim.setValue(0);
+    }, [scanAnim])
   );
 
   if (!permission) {
