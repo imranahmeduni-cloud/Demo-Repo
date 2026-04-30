@@ -39,6 +39,14 @@ export default function ScannerScreen({ navigation }) {
       setScanned(false);
       setTorchOn(false);
       scanAnim.setValue(0);
+      const loop = Animated.loop(
+        Animated.sequence([
+          Animated.timing(scanAnim, { toValue: 1, duration: 1800, useNativeDriver: true }),
+          Animated.timing(scanAnim, { toValue: 0, duration: 1800, useNativeDriver: true }),
+        ])
+      );
+      loop.start();
+      return () => loop.stop();
     }, [scanAnim])
   );
 
