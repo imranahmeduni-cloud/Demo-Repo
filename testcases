@@ -1,0 +1,10 @@
+# Test Cases
+
+1) Valid barcode for SmartWater Bottle - navigates to results screen as expected with accurate stores and prices
+2) Valid barcode for Cup Noodles Chicken Flavor - navigates to results screen as expected with accurate stores and prices
+3) Valid barcode for Calcium Fortified Enriched Bread - navigates to results screen as expected with accurate stores and prices
+4) Valid barcode for Solid White Tuna Albacore in Water - navigates to results screen as expected with accurate stores and prices
+5) Valid barcode for Real Mayonnaise - navigates to results screen as expected with accurate stores and prices
+6) Valid barcode for Mac and Cheese - navigates to results screen as expected with accurate stores and prices
+7) Valid barcode for Yocrunch Oreo Vanilla - navigates to results screen as expected with accurate stores and prices
+8) Invalid barcode - navigates to results screen as expected with mock results 
